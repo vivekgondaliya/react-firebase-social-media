@@ -17,6 +17,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
             template: './index.html',
             inject: false
         }),
+        new webpack.HotModuleReplacementPlugin()
      ],
      module: {
          rules : [
@@ -50,8 +51,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
      },
      devtool: 'inline-source-map',
      devServer: {
-         contentBase: './dist',
-         hot: true
+        historyApiFallback: true,
+        contentBase: './dist',
+        hot: true
      },
      mode: 'development'
  };
